@@ -14,6 +14,7 @@
 #include "CollisionObject/MeshCollisionUtils.hpp"
 #include "NeoHookeanEnergy.hpp"
 #include "FixedCoRotEnergy.hpp"
+#include "HyperFoamEnergy.hpp"
 
 #include "MeshCollisionUtils.hpp"
 #include "FrictionUtils.hpp"
@@ -65,6 +66,7 @@ public:
                 std::vector<Energy<DIM>*> e;
                 e.emplace_back(new FixedCoRotEnergy<DIM>);
                 e.emplace_back(new NeoHookeanEnergy<DIM>);
+                e.emplace_back(new HyperFoamEnergy<DIM>);
                 for (const auto eI : e) {
                     eI->unitTest_dE_div_dsigma();
                     eI->unitTest_d2E_div_dsigma2();

@@ -4,6 +4,7 @@
 #include "Optimizer.hpp"
 #include "NeoHookeanEnergy.hpp"
 #include "FixedCoRotEnergy.hpp"
+#include "HyperFoamEnergy.hpp"
 #include "GIF.hpp"
 #include "Timer.hpp"
 #include "getRSS.hpp"
@@ -1389,6 +1390,11 @@ int main(int argc, char* argv[])
     case IPC::ET_FCR:
         energyTerms.emplace_back(new IPC::FixedCoRotEnergy<DIM>());
         break;
+    
+    case IPC::ET_HF:
+        energyTerms.emplace_back(new IPC::HyperFoamEnergy<DIM>());
+        break;
+
     }
     //        energyTerms.back()->checkEnergyVal(*triSoup[0]);
     //        energyTerms.back()->checkGradient(*triSoup[0]);

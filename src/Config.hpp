@@ -22,7 +22,8 @@ namespace IPC {
 
 enum EnergyType {
     ET_NH,
-    ET_FCR
+    ET_FCR,
+    ET_HF,
 };
 
 enum TimeIntegrationType {

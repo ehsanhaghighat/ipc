@@ -43,9 +43,14 @@ mkdir -p build
 cd build
 
 if [ -z "${BUILD_TYPE}" ]; then
-    BUILD_TYPE=Release
+    BUILD_TYPE=Debug
 fi
 echo ${BUILD_TYPE}
 
-cmake -DMAKE_BUILD_TYPE=${BUILD_TYPE} ..
+if [ -z "${WITH_OPENGL}" ]; then
+    WITH_OPENGL=OFF
+fi
+echo ${WITH_OPENGL}
+
+cmake -DMAKE_BUILD_TYPE=${BUILD_TYPE} -DIPC_WITH_OPENGL=${WITH_OPENGL} ..
 make -j16

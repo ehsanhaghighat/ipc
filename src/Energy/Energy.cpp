@@ -21,6 +21,8 @@
 #include <fstream>
 #include <iostream>
 
+#include <spdlog/spdlog.h>
+
 extern std::string outputFolderPath;
 extern std::ofstream logFile;
 extern Timer timer_temp, timer_temp2;
@@ -199,6 +201,7 @@ void Energy<dim>::getEnergyValPerElemBySVD(const Mesh<dim>& data, int redoSVD,
     bool uniformWeight) const
 {
     energyValPerElem.resize(data.F.rows());
+    spdlog::error("size is {}", (int)data.F.rows());
 #ifdef USE_TBB
     tbb::parallel_for(0, (int)data.F.rows(), 1, [&](int triI) {
 #else

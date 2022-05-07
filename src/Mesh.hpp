@@ -83,6 +83,7 @@ public: // owned features
     Eigen::SparseMatrix<double> massMatrix; // V.rows() wide
     double density, m_YM, m_PR;
     Eigen::VectorXd u, lambda;
+    std::map<std::string, Eigen::VectorXd> m_props;
     Eigen::VectorXd triArea; // triangle rest area
     double avgEdgeLen;
     std::set<int> DBCVertexIds; // for linear solve

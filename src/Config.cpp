@@ -21,7 +21,7 @@
 namespace IPC {
 
 const std::vector<std::string> Config::energyTypeStrs = {
-    "NH", "FCR"
+    "NH", "FCR", "HF",
 };
 const std::vector<std::string> Config::timeIntegrationTypeStrs = {
     "BE", "NM"
